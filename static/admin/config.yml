@@ -1,5 +1,6 @@
 backend:
-  name: test-repo
+  name: github
+  repo: joshatoutthink/MY_BLOG
 
 media_folder: static/assets
 public_folder: assets
