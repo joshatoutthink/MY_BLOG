@@ -1,6 +1,7 @@
 backend:
   name: github
   repo: joshatoutthink/MY_BLOG
+  branch: master
 
 media_folder: static/assets
 public_folder: assets
