@@ -9,7 +9,19 @@ public_folder: assets
 collections:
   - name: posts
     label: Posts
-    folder: posts
+    folder: src/posts
+    create: true
+    fields:
+      - { name: slug, label: Path }
+      - { name: date, label: Date, widget: date }
+      - { name: title, label: Title }
+      - { name: image, label: "Featured Image", widget: "image"}
+      - { name: type, label: Type, widget: select, options:['project', 'post'] }
+      - { name: body, label: Body, widget: markdown }
+
+  - name: projects
+    label: Projects
+    folder: src/projects
     create: true
     fields:
       - { name: slug, label: Path }
