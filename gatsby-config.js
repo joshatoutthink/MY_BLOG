@@ -57,6 +57,13 @@ module.exports = {
         path: `${__dirname}/src/projects/`,
       },
     },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `codepen`,
+        path: `${__dirname}/src/codepen/`,
+      },
+    },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {

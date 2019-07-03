@@ -7,7 +7,9 @@ import { Link } from "gatsby"
 function ProjectSingle({ image, name, description, link, className }) {
   return (
     <li className={className}>
-      <div className="project__image">{/* <Image slug={} /> */}</div>
+      <div className="project__image">
+        <img src={image} alt="project" />
+      </div>
       <div className="project__name">
         <h3>{name}</h3>
       </div>
@@ -54,6 +56,8 @@ export default styled(ProjectSingle)`
     box-shadow: 0 50px 100px rgba(0, 0, 0, 0.2), 0 15px 35px rgba(0, 0, 0, 0.3),
       0 5px 15px rgba(0, 0, 0, 0.2);
     img {
+      width: 100%;
+      height: 100%;
       object-fit: cover;
     }
   }
