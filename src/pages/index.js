@@ -33,13 +33,13 @@ const IndexPage = () => {
             <ProjectSingleList />
           </div>
         </Row>
-        <Row bgC={grey2} color="white">
+        <RecentPostWrapper bgC={grey2} color="white">
           <div className="container">
             <h2>Recent Blog Posts</h2>
-            <RecentPostList />
+            <RecentPostList style={{}} />
             <LinkButton link="/blog">View All Posts</LinkButton>
           </div>
-        </Row>
+        </RecentPostWrapper>
         <Row bgC="rgb(40, 44, 47)" color="white">
           <div className="container">
             <h2>Recent Pen featured on Codepen</h2>
@@ -71,6 +71,12 @@ const Intro = styled.div`
       color: ${blue3};
     }
     text-align: right;
+  }
+`
+
+const RecentPostWrapper = styled(Row)`
+  ul {
+    margin: 0 0 30px;
   }
 `
 

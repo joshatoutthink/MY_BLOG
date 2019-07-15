@@ -7,7 +7,11 @@ import RecentPost from "./RecentPost"
 function RecentPostList(props) {
   const data = useStaticQuery(graphql`
     {
-      allMarkdownRemark(filter: { frontmatter: { type: { eq: "post" } } }) {
+      allMarkdownRemark(
+        filter: { frontmatter: { type: { eq: "post" } } }
+        sort: { order: ASC, fields: frontmatter___date }
+        limit: 4
+      ) {
         nodes {
           frontmatter {
             slug
@@ -41,7 +45,7 @@ export default styled(RecentPostList)`
   margin: 0;
   display: grid;
   width: 100%;
-  grid-column-gap: 30px;
+  grid-gap: 40px;
   grid-template-columns: 1fr 1fr;
   @media (max-width: 762px) {
     grid-template-columns: 1fr;

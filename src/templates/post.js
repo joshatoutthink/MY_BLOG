@@ -23,7 +23,6 @@ export const data = graphql`
   }
 `
 export default function post({ data }) {
-  console.log(data)
   const { frontmatter, html } = data.markdownRemark
   return (
     <Layout showTitle={true}>
@@ -41,7 +40,7 @@ export default function post({ data }) {
     </Layout>
   )
 }
-const TitleRow = styled(Row)`
+export const TitleRow = styled(Row)`
   text-align: center;
   .wrapper {
     max-width: 550px;

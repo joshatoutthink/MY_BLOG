@@ -11,7 +11,7 @@ export const data = graphql`
   query ALLPOSTS {
     allMarkdownRemark(
       filter: { frontmatter: { type: { eq: "post" } } }
-      sort: { order: DESC, fields: frontmatter___date }
+      sort: { order: ASC, fields: frontmatter___date }
     ) {
       edges {
         node {
@@ -61,11 +61,16 @@ const BlogPostList = styled.ul`
     color: ${grey1};
   }
   li {
+    margin: 50px 0;
   }
 `
 const BlogListWrapper = styled(Row)`
   .wrapper {
     max-width: 550px;
+    h3 a {
+      font-size: 2rem;
+      font-weight: 100;
+    }
   }
 `
 const HeroRow = styled(Row)`

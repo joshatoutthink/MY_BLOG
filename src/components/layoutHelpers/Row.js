@@ -22,7 +22,7 @@ export default styled(Row)`
   position: relative;
   background-size: cover;
   width: 100%;
-  padding: 40px 0;
+  padding: 60px 0;
   .wrapper {
     padding: 0 20px;
     max-width: 800px;
