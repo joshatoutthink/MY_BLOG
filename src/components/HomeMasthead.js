@@ -1,6 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import { useStaticQuery, graphql } from "gatsby"
+import { grey2 } from "./designSystem"
 
 export default function HomeMasthead(props) {
   const data = useStaticQuery(graphql`
@@ -19,8 +20,9 @@ export default function HomeMasthead(props) {
 const HeaderRow = styled.div`
   position: relative;
   width: 100%;
-  padding: 40px 0;
-  background: #323639;
+  padding: 20px 0 40px 0;
+
+  background: ${grey2};
   background-repeat: no-repeat;
   background-size: cover;
   background-position: right top;

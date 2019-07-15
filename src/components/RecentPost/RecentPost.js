@@ -6,10 +6,10 @@ function RecentPost({ className, title, excerpt, link }) {
   return (
     <li className={className}>
       <h3>
-        <Link to={`/${link}`}>{title}</Link>
+        <Link to={`${link}`}>{title}</Link>
       </h3>
       <p dangerouslySetInnerHTML={{ __html: excerpt }} />
-      <Link to={`/${link}`}>read more</Link>
+      <Link to={`${link}`}>read more</Link>
     </li>
   )
 }

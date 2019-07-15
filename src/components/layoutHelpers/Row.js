@@ -5,10 +5,10 @@ function Row(props) {
     <section
       className={props.className}
       style={{
-        background: `${props.bg || "none"}`,
-        backgroundSized: `${props.bgSize}`,
-        backgroundPosition: `${props.bgPos}`,
-        backgroundRepeat: `no-repeat`,
+        backgroundImage: `${props.bg || "none"}`,
+        backgroundColor: `${props.bgC || "unset"}`,
+        backgroundSize: `${props.bgSize || ""} `,
+        backgroundPosition: `${props.bgPos || "unset"}`,
       }}
     >
       <div className="wrapper" style={{ color: `${props.color}` }}>
@@ -18,13 +18,14 @@ function Row(props) {
   )
 }
 export default styled(Row)`
+  background-repeat: no-repeat;
   position: relative;
   background-size: cover;
   width: 100%;
   padding: 40px 0;
   .wrapper {
     padding: 0 20px;
-    max-width: 900px;
+    max-width: 800px;
     margin: 0 auto;
   }
 `

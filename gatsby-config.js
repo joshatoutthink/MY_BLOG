@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
-    title: `Josh Kennedy web dev`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
+    title: `Josh Kennedy`,
+    description: `I help create the web through design and developement.`,
     author: `@gatsbyjs`,
   },
   plugins: [
@@ -80,14 +80,12 @@ module.exports = {
     },
     `gatsby-plugin-offline`,
     {
-      resolve: `gatsby-plugin-prefetch-google-fonts`,
+      resolve: `gatsby-plugin-google-fonts`,
       options: {
         fonts: [
-          {
-            family: `Open Sans`,
-            variants: [`100`, `400`, `700`],
-          },
+          `Open Sans\:100,400,400i,700`, // you can also specify font weights and styles
         ],
+        display: "swap",
       },
     },
     {

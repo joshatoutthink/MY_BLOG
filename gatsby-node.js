@@ -33,12 +33,12 @@ exports.createPages = ({ graphql, actions }) => {
 
       results.data.allMarkdownRemark.edges.forEach(({ node }) => {
         createPage({
-          path: `/${node.frontmatter.slug}`,
+          path: `${node.frontmatter.slug}`,
           component: path.resolve(
             `./src/templates/${node.frontmatter.type}.js`
           ),
           context: {
-            slug: `/${node.frontmatter.slug}`,
+            slug: `${node.frontmatter.slug}`,
           },
         })
       })

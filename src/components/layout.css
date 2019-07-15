@@ -1,3 +1,16 @@
+/*? if you change a variable remember to change it in the designSystem as well */
+:root {
+  --grey1: #282c2f;
+  --grey2: #323639;
+  --grey3: #3c4043;
+  --grey4: #5b5f61;
+  --grey5: #eef0f1;
+
+  --blue1: hsl(206, 84%, 19%);
+  --blue2: hsl(206, 84%, 48%);
+  --blue3: hsl(206, 84%, 60%);
+}
+
 html {
   font-family: sans-serif;
   -ms-text-size-adjust: 100%;
@@ -41,11 +54,14 @@ template {
   display: none;
 }
 a {
+  color: var(--blue3);
   background-color: transparent;
   -webkit-text-decoration-skip: objects;
 }
 a:active,
 a:hover {
+  color: var(--blue2);
+  text-decoration: underline;
 }
 abbr[title] {
   border-bottom: none;
@@ -60,10 +76,7 @@ strong {
 dfn {
   font-style: italic;
 }
-h1 {
-  font-size: 2em;
-  margin: 0.67em 0;
-}
+
 mark {
   background-color: #ff0;
   color: #000;
@@ -98,7 +111,7 @@ samp {
   font-size: 1em;
 }
 figure {
-  margin: 1em 40px;
+  margin: 0;
 }
 hr {
   box-sizing: content-box;
@@ -185,7 +198,6 @@ textarea {
   font: inherit;
 }
 html {
-  font: 112.5%/1.45em georgia, serif;
   box-sizing: border-box;
   overflow-y: scroll;
 }
@@ -199,9 +211,11 @@ html {
   box-sizing: inherit;
 }
 body {
-  color: hsla(0, 0%, 0%, 0.8);
+  color: var(--grey1);
+  background: white;
   font-family: "Open Sans", sans-serif;
   font-weight: normal;
+  min-height: 100vh;
   word-wrap: break-word;
   font-kerning: normal;
   -moz-font-feature-settings: "kern", "liga", "clig", "calt";
@@ -218,7 +232,6 @@ img {
   padding-left: 0;
   padding-right: 0;
   padding-top: 0;
-  margin-bottom: 1.45rem;
 }
 h1 {
   margin-left: 0;
@@ -231,7 +244,7 @@ h1 {
   margin-bottom: 1.45rem;
   color: inherit;
   font-family: "0pen Sans", sans-serif;
-  font-weight: bold;
+  font-weight: 400;
   text-rendering: optimizeLegibility;
   font-size: 2.25rem;
   line-height: 1.1;
@@ -316,6 +329,20 @@ h6 {
   font-size: 0.78405rem;
   line-height: 1.1;
 }
+@media (max-width: 672px) {
+  h4 {
+    font-size: 0.8rem;
+  }
+  h3 {
+    font-size: 1rem;
+  }
+  h2 {
+    font-size: 1.18316rem;
+  }
+  h1 {
+    font-size: 2rem;
+  }
+}
 hgroup {
   margin-left: 0;
   margin-right: 0;
@@ -378,8 +405,11 @@ p {
   padding-left: 0;
   padding-right: 0;
   padding-top: 0;
+  line-height: 1.5;
+  font-size: 16px;
   margin-bottom: 1.45rem;
 }
+
 figure {
   margin-left: 0;
   margin-right: 0;
@@ -388,7 +418,6 @@ figure {
   padding-left: 0;
   padding-right: 0;
   padding-top: 0;
-  margin-bottom: 1.45rem;
 }
 pre {
   margin-left: 0;
@@ -501,6 +530,10 @@ dt {
 }
 th {
   font-weight: bold;
+}
+ul {
+  margin: 0;
+  padding: 0;
 }
 li {
   margin-bottom: calc(1.45rem / 2);
@@ -616,4 +649,7 @@ pre tt:after {
 }
 body {
   font-size: 0.9rem;
+}
+main {
+  min-height: 90vh;
 }
