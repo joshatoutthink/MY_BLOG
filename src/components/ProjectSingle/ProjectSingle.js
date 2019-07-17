@@ -1,6 +1,5 @@
 import React from "react"
 import styled from "styled-components"
-import { Link } from "gatsby"
 
 import LinkButton from "../elements/LinkButton"
 import { grey2, blue3, blue1, blue2 } from "../designSystem"

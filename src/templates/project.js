@@ -1,9 +1,7 @@
 import React from "react"
-import styled from "styled-components"
 import { graphql } from "gatsby"
 
 import ContentRow from "../components/layoutHelpers/ContentRow"
-import Row from "../components/layoutHelpers/Row"
 import Layout from "../components/layout"
 import { grey5 } from "../components/designSystem"
 import { TitleRow } from "../templates/post"

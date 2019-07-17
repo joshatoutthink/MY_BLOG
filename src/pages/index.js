@@ -1,10 +1,8 @@
 import React from "react"
 import styled from "styled-components"
-import { Link } from "gatsby"
 
 import Row from "../components/layoutHelpers/Row"
 import Layout from "../components/layout"
-import SEO from "../components/seo"
 import HomeMasthead from "../components/HomeMasthead"
 import ProjectSingleList from "../components/ProjectSingle/ProjectSingleList"
 import FeaturedCodePen from "../components/FeaturedCodePen/FeaturedCodePen"
@@ -15,8 +13,7 @@ import { grey1, grey2, blue3 } from "../components/designSystem"
 const IndexPage = () => {
   return (
     <>
-      <SEO title="Home" />
-      <Layout transparent={true}>
+      <Layout transparent={true} pageTitle="Home">
         <HomeMasthead>
           <div className="wrapper">
             <Intro>

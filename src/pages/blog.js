@@ -33,26 +33,33 @@ export const data = graphql`
 
 const BlogPage = ({ data }) => {
   return (
-    <Layout showTitle={true}>
-      <HeroRow
-        bg={`url(${data.file.publicURL})`}
-        bgC={grey5}
-        bgSize={"cover"}
-        bgPos={"60% 25%"}
-      >
-        <h1>Blog Archive</h1>
-      </HeroRow>
-      <BlogListWrapper>
-        <BlogPostList>
-          {data.allMarkdownRemark.edges.map(({ node }) => {
-            const { slug, title } = node.frontmatter
-            return (
-              <RecentPost title={title} excerpt={node.excerpt} link={slug} />
-            )
-          })}
-        </BlogPostList>
-      </BlogListWrapper>
-    </Layout>
+    <>
+      <Layout showTitle={true} pageTitle="Blog">
+        <HeroRow
+          bg={`url(${data.file.publicURL})`}
+          bgC={grey5}
+          bgSize={"cover"}
+          bgPos={"60% 25%"}
+        >
+          <h1>Blog Archive</h1>
+        </HeroRow>
+        <BlogListWrapper>
+          <BlogPostList>
+            {data.allMarkdownRemark.edges.map(({ node }) => {
+              const { slug, title } = node.frontmatter
+              return (
+                <RecentPost
+                  title={title}
+                  excerpt={node.excerpt}
+                  link={slug}
+                  key={node.id}
+                />
+              )
+            })}
+          </BlogPostList>
+        </BlogListWrapper>
+      </Layout>
+    </>
   )
 }
 

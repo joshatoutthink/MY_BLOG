@@ -4,10 +4,11 @@ import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 
 import MenuBar from "./MenuBar"
+import SEO from "./seo"
 import { grey1 } from "./designSystem"
 import "./layout.css"
 
-const Layout = ({ children, transparent, showTitle }) => {
+const Layout = ({ children, transparent, showTitle, pageTitle }) => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
@@ -20,6 +21,7 @@ const Layout = ({ children, transparent, showTitle }) => {
 
   return (
     <>
+      <SEO title={pageTitle || ""} />
       <MenuBar
         transparent={transparent}
         showTitle={showTitle && data.site.siteMetadata.title}

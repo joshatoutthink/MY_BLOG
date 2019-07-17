@@ -4,6 +4,9 @@ import { Link } from "gatsby"
 
 import Icon from "../components/elements/Icon"
 import { grey1, grey2 } from "./designSystem"
+import Modal from "./elements/Modal"
+import Toggle from "./utilities/Toggle"
+import Menu from "./Menu"
 
 function MenuBar({ className, showTitle }) {
   return (
@@ -14,6 +17,7 @@ function MenuBar({ className, showTitle }) {
             <h1>{showTitle}</h1>
           </Link>
         ) : null}
+        <Menu className="desktop-menu" />
         <ul className="icons">
           <li>
             <a href="https://github.com/joshatoutthink">
@@ -37,10 +41,21 @@ function MenuBar({ className, showTitle }) {
             </a>
           </li>
         </ul>
-        <div className="menu-icon">
-          <span className="top"></span>
-          <span className="bottom"></span>
-        </div>
+        <Toggle>
+          {({ toggle, on }) => (
+            <>
+              <div onClick={toggle} className="menu-icon">
+                <span className="top"></span>
+                <span className="bottom"></span>
+              </div>
+              {on && (
+                <Modal on={on} toggle={toggle}>
+                  <Menu isMobile={true} />
+                </Modal>
+              )}
+            </>
+          )}
+        </Toggle>
       </div>
     </div>
   )
@@ -56,7 +71,7 @@ export default styled(MenuBar)`
   height: 55px;
   display: flex;
   align-items: center;
-  z-index: 10;
+  z-index: 7;
   .wrapper {
     padding: 0 40px;
     min-width: 100%;
@@ -78,6 +93,12 @@ export default styled(MenuBar)`
         }
       }
     }
+
+    @media (max-width: 763px) {
+      .desktop-menu {
+        display: none;
+      }
+    }
   }
   ul {
     margin: 0;
@@ -88,6 +109,11 @@ export default styled(MenuBar)`
     align-items: center;
   }
   .menu-icon {
+    @media (min-width: 763px) {
+      display: none;
+    }
+    background: transparent;
+    border: none;
     margin-left: 20px;
     width: 50px;
     height: 45px;

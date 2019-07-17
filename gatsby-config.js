@@ -94,5 +94,12 @@ module.exports = {
     {
       resolve: `gatsby-plugin-netlify-cms`,
     },
+    {
+      resolve: `gatsby-plugin-portal`,
+      options: {
+        key: "portal",
+        id: "portal",
+      },
+    },
   ],
 }
