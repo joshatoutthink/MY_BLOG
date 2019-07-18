@@ -1,11 +1,9 @@
 import React from "react"
-import styled from "styled-components"
 import { graphql } from "gatsby"
 
 import ContentRow from "../components/layoutHelpers/ContentRow"
-import Row from "../components/layoutHelpers/Row"
+import TitleRow from "../components/layoutHelpers/TitleRow"
 import Layout from "../components/layout"
-import { grey5 } from "../components/designSystem"
 
 export const data = graphql`
   query MyQuery($slug: String!) {
@@ -25,13 +23,8 @@ export const data = graphql`
 export default function post({ data }) {
   const { frontmatter, html } = data.markdownRemark
   return (
-    <Layout showTitle={true}>
-      <TitleRow
-        bg={`url(${data.file.publicURL})`}
-        bgC={grey5}
-        bgSize={"cover"}
-        bgPos={"60% 25%"}
-      >
+    <Layout showTitle={true} pageTitle={frontmatter.title}>
+      <TitleRow>
         <h1>{frontmatter.title}</h1>–<p className="date">{frontmatter.date}</p>
       </TitleRow>
       <ContentRow bg={"white"}>
@@ -40,15 +33,3 @@ export default function post({ data }) {
     </Layout>
   )
 }
-export const TitleRow = styled(Row)`
-  text-align: center;
-  .wrapper {
-    max-width: 550px;
-  }
-  .date {
-    font-size: 70%;
-  }
-  h1 {
-    margin-bottom: 0;
-  }
-`

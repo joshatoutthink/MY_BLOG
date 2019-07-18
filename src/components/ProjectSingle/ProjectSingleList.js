@@ -7,7 +7,10 @@ import ProjectSingle from "./ProjectSingle"
 function ProjectSingleList({ className }) {
   const data = useStaticQuery(graphql`
     {
-      allMarkdownRemark(filter: { frontmatter: { type: { eq: "project" } } }) {
+      allMarkdownRemark(
+        filter: { frontmatter: { type: { eq: "project" } } }
+        limit: 1
+      ) {
         nodes {
           frontmatter {
             slug

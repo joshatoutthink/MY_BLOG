@@ -31,11 +31,10 @@ export default styled(Menu)`
     list-style: none;
     margin-bottom: 5vh;
     a {
-      color: ${blue3};
+      color: ${props => (props.isMobile ? blue3 : "white")};
       text-decoration: none;
       &:hover {
         color: ${blue2};
-        text-decoration: underline;
       }
     }
     margin-left: 20px;
