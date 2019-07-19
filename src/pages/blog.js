@@ -5,6 +5,7 @@ import styled from "styled-components"
 import RecentPost from "../components/RecentPost/RecentPost"
 import Row from "../components/layoutHelpers/Row"
 import Layout from "../components/layout"
+import TitleRow from "../components/layoutHelpers/TitleRow"
 import { grey5, grey1 } from "../components/designSystem"
 
 export const data = graphql`
@@ -35,14 +36,14 @@ const BlogPage = ({ data }) => {
   return (
     <>
       <Layout showTitle={true} pageTitle="Blog">
-        <HeroRow
+        <TitleRow
           bg={`url(${data.file.publicURL})`}
           bgC={grey5}
           bgSize={"cover"}
           bgPos={"60% 25%"}
         >
           <h1>Blog Archive</h1>
-        </HeroRow>
+        </TitleRow>
         <BlogListWrapper>
           <BlogPostList>
             {data.allMarkdownRemark.edges.map(({ node }) => {

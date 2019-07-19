@@ -3,7 +3,7 @@ import styled from "styled-components"
 import { graphql, useStaticQuery } from "gatsby"
 
 import Row from "./Row"
-import { grey5 } from "../designSystem"
+import { grey5, blue2, grey1 } from "../designSystem"
 
 const TitleRow = ({ className, children }) => {
   const data = useStaticQuery(graphql`
@@ -35,6 +35,8 @@ export default styled(TitleRow)`
     font-size: 70%;
   }
   h1 {
+    color: ${grey1};
     margin-bottom: 0;
+    text-shadow: 0px 1px 34px rgb(25, 25, 25, 0.5);
   }
 `

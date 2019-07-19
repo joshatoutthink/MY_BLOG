@@ -3,7 +3,6 @@ import { graphql } from "gatsby"
 
 import ContentRow from "../components/layoutHelpers/ContentRow"
 import Layout from "../components/layout"
-import { grey5 } from "../components/designSystem"
 import TitleRow from "../components/layoutHelpers/TitleRow"
 
 export const data = graphql`
