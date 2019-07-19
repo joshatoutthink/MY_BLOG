@@ -16,9 +16,11 @@ const contact = () => {
         <ContactForm
           data-netlify={true}
           name="contact"
-          method="POST"
+          method="post"
           action="/contact/?success"
+          data-netlify-honeypot="bot-field"
         >
+          <input type="hidden" name="bot-field" />
           <div className="input-group">
             <label htmlFor="name">
               <input type="text" name="name" id="name" placeholder="&nbsp;" />
