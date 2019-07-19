@@ -39,7 +39,7 @@ const contact = () => {
             ></textarea>
             <span className="label-text">Message</span>
           </label>
-          <input type="submit" value="Submit" />
+          <button type="submit" value="Submit" />
         </ContactForm>
       </ContentRow>
     </Layout>
@@ -111,8 +111,9 @@ const ContactForm = styled.form`
   input {
     padding: 10px;
   }
-  input[type="submit"] {
+  button[type="submit"] {
     width: 200px;
+    height: 45px;
     background: ${blue2};
     outline: 0;
     border-color: ${blue2};
