@@ -7,7 +7,7 @@ import Icon from "./Icon"
 
 const Modal = ({ children, toggle, on }) => {
   return (
-    <Portal>
+    <Portal id="portal">
       {on && (
         <ModalWrapper>
           <Card>
