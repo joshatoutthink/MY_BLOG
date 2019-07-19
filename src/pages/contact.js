@@ -17,7 +17,7 @@ const contact = () => {
           data-netlify={true}
           name="contact"
           method="post"
-          action="/contact/?success"
+          //action="/contact/?success"
           data-netlify-honeypot="bot-field"
         >
           <input type="hidden" name="bot-field" />
@@ -47,7 +47,7 @@ const contact = () => {
             ></textarea>
             <span className="label-text">Message</span>
           </label>
-          <button type="submit" value="Submit" />
+          <button type="submit">Send</button>
         </ContactForm>
       </ContentRow>
     </Layout>
@@ -125,7 +125,7 @@ const ContactForm = styled.form`
     background: ${blue2};
     outline: 0;
     border-color: ${blue2};
-    color: ${blue1};
+    color: white;
     &:hover {
       border-color: ${blue3};
       background: ${blue3};
