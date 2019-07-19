@@ -2,7 +2,7 @@ module.exports = {
   siteMetadata: {
     title: `Josh Kennedy`,
     description: `I help create the web through design and developement.`,
-    author: `@gatsbyjs`,
+    author: `@joshkennedy00`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -69,16 +69,16 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
+        name: `Josh Kennedy's Website`,
+        short_name: `Josh Kennedy`,
         start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
+        background_color: `#323639`,
+        theme_color: `#43a4ef`,
         display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+        icon: `src/images/jkennedy-icon.png`, // This path is relative to the root of the site.
       },
     },
-    //`gatsby-plugin-offline`,
+    `gatsby-plugin-offline`,
     {
       resolve: `gatsby-plugin-google-fonts`,
       options: {
