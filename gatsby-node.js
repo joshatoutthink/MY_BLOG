@@ -19,6 +19,7 @@ exports.createPages = ({ graphql, actions }) => {
                 frontmatter {
                   slug
                   type
+                  image
                 }
               }
             }
@@ -32,6 +33,10 @@ exports.createPages = ({ graphql, actions }) => {
       }
 
       results.data.allMarkdownRemark.edges.forEach(({ node }) => {
+        console.log(node.frontmatter.image)
+        const imageSlug =
+          node.frontmatter.image && node.frontmatter.image.replace("../..", "")
+        console.log(imageSlug)
         createPage({
           path: `${node.frontmatter.slug}`,
           component: path.resolve(
@@ -39,6 +44,7 @@ exports.createPages = ({ graphql, actions }) => {
           ),
           context: {
             slug: `${node.frontmatter.slug}`,
+            image: `${node.frontmatter.image ? `/${imageSlug}/` : "none"}`,
           },
         })
       })

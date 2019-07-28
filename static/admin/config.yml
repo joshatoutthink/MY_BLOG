@@ -15,7 +15,6 @@ collections:
       - { name: slug, label: Path }
       - { name: date, label: Date, widget: date }
       - { name: title, label: Title }
-      - { name: image, label: "Featured Image", widget: "image"}
       - { name: type, label: Type, widget: select, options:['project', 'post'] }
       - { name: body, label: Body, widget: markdown }
 

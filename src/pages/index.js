@@ -33,7 +33,7 @@ const IndexPage = () => {
         <RecentPostWrapper bgC={grey2} color="white">
           <div className="container">
             <h2>Recent Blog Posts</h2>
-            <RecentPostList style={{}} />
+            <RecentPostList />
             <LinkButton link="/blog">View All Posts</LinkButton>
           </div>
         </RecentPostWrapper>
@@ -49,7 +49,7 @@ const IndexPage = () => {
 }
 
 const Intro = styled.div`
-  max-width: 400px;
+  max-width: 600px;
   min-height: 50vh;
   position: relative;
   display: flex;
@@ -63,9 +63,10 @@ const Intro = styled.div`
     }
     color: white;
     h1 {
-      font-weight: 100;
+      font-weight: 400;
       font-family: "open sans";
       color: ${blue3};
+      font-size: 4rem;
     }
     text-align: right;
   }

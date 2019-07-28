@@ -11,6 +11,7 @@ function ProjectSingle({ image, name, description, link, className }) {
     <li className={className}>
       <div className="project__image">
         <img src={image} alt="project" />
+        {/* <Image fluid={image} /> */}
       </div>
       <div className="project__name">
         <h3>{name}</h3>

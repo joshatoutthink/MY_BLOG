@@ -1,12 +1,13 @@
 import React from "react"
 import { graphql } from "gatsby"
+import Img from "gatsby-image"
 
 import ContentRow from "../components/layoutHelpers/ContentRow"
 import Layout from "../components/layout"
 import TitleRow from "../components/layoutHelpers/TitleRow"
 
 export const data = graphql`
-  query PROJECTQUERY($slug: String!) {
+  query PROJECTQUERY($slug: String!, $image: String!) {
     markdownRemark(frontmatter: { slug: { eq: $slug } }) {
       frontmatter {
         date(formatString: "MMMM DD, YYYY")
@@ -16,7 +17,14 @@ export const data = graphql`
       }
       html
     }
-    file(relativePath: { eq: "main-geo-lines.png" }) {
+    file(absolutePath: { regex: $image }) {
+      childImageSharp {
+        fluid {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    Image: file(relativePath: { eq: "main-geo-lines.png" }) {
       publicURL
     }
   }
@@ -24,6 +32,7 @@ export const data = graphql`
 
 export default function projects({ data }) {
   const { frontmatter, html } = data.markdownRemark
+  const { projectImage } = data
   return (
     <Layout showTitle={true} pageTitle={frontmatter.title}>
       <TitleRow>
@@ -31,8 +40,12 @@ export default function projects({ data }) {
       </TitleRow>
       <ContentRow>
         {frontmatter.image && (
-          <img src={frontmatter.image} alt={frontmatter.title} />
+          <Img
+            fluid={data.file.childImageSharp.fluid}
+            alt={frontmatter.title}
+          />
         )}
+        {console.log(data.file)}
         <div dangerouslySetInnerHTML={{ __html: html }} />
       </ContentRow>
     </Layout>
