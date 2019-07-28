@@ -1,7 +1,7 @@
 ---
 slug: "/hello-world"
 date: 2019-07-28T17:12:33.962Z
-title: "A First Gatsby Post"
+title: "A First Post"
 type: "post"
 ---
 
