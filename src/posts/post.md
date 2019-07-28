@@ -1,22 +1,14 @@
 ---
 slug: "/hello-world"
-date: 2017-07-12T17:12:33.962Z
-title: "My First Gatsby Post"
+date: 2019-07-28T17:12:33.962Z
+title: "A First Gatsby Post"
 type: "post"
 ---
 
-## This is a sample of what a post may look like.
+## This is my first blog post.
+This post is going to be about this blog, and why I created it. This essentially is a portfolio website with a blog.  I want a place to keep track of my journey as designer and developer.  
 
-Gravida volutpat purus eu eros mollis, hendrerit ipsum nisl litora, sociosqu massa orci cras. In eleifend massa nulla et fames tortor facilisis, sapien accumsan auctor vehicula natoque enim cras, efficitur adipiscing risus purus ornare ex. In risus sollicitudin himenaeos aliquet hendrerit est conubia proin velit, quis erat habitasse donec tortor ullamcorper amet libero.
-
-## this is a second paragraph
-
-Gravida volutpat purus eu eros mollis, hendrerit ipsum nisl litora, sociosqu massa orci cras. In eleifend massa nulla et fames tortor facilisis, sapien accumsan auctor vehicula natoque enim cras, efficitur adipiscing risus purus ornare ex. In risus sollicitudin himenaeos aliquet hendrerit est conubia proin velit, quis erat habitasse donec tortor ullamcorper amet libero.
-
-sis, sapien accumsan auctor vehicula natoque enim cras, efficitur adipiscing risus purus ornare ex. In risus sollicitudin himenaeos aliquet hendrerit est conubia proin velit, quis erat habitasse donec tortor ullamcorper amet libero.
-
-### subheading 
-sis, sapien accumsan auctor vehicula natoque enim cras, efficitur adipiscing risus purus ornare ex. In risus sollicitudin himenaeos aliquet hendrerit est conubia proin velit, quis erat habitasse donec tortor ullamcorper amet libero.
-
-### Another subheading 
-sis, sapien accumsan auctor vehicula natoque enim cras, efficitur adipiscing risus purus ornare ex. In risus sollicitudin himenaeos aliquet hendrerit est conubia proin velit, quis erat habitasse donec tortor ullamcorper amet libero.
+### Projects
+I plan to document major and small projects that I create.  From Codepens that try explore new css and js API's, to full Client projects that accomplish specific goals.  I plan to document them all. Besides a place for people interested in seeing my design and dev abilities, can see my work, its also a place for me to keep track of my progress as I grow.
+### Blog
+The other part of this site is the blog. I will write on any technology, or API I am exploring, documenting my learning progress. While, I hope this will be helpful to others, this is also for me to reference, when I forget what I have learned.To all those who are learning, and who do not have a blog. I highly recommend in joining me, and blogging what you learn so you can learn better and help others on their journey.
