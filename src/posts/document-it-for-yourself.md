@@ -1,7 +1,7 @@
 ---
 slug: "/document-it-for-you"
 date: 2019-07-28T17:19:33.962Z
-title: "Document Your Process For Yourself"
+title: "Document Your Process"
 type: "post"
 ---
 
