@@ -29,7 +29,7 @@ const TitleRow = ({ className, children }) => {
 export default styled(TitleRow)`
   text-align: center;
   .wrapper {
-    max-width: 550px;
+    max-width: 600px;
   }
   .date {
     font-size: 70%;

@@ -6,7 +6,7 @@ import Row from "./Row"
 const ContentRowWrap = styled(Row)`
   box-sizing: border-box;
   .wrapper {
-    max-width: 550px;
+    max-width: 600px;
   }
   h2 {
     margin: 18px 0;
