@@ -42,6 +42,7 @@ const About = ({ data, className }) => {
           doing their design work. I eventually went on to work full time there,
           which is where I currently work.
         </p>
+
         <h4>How I came to love the web</h4>
         <p>
           I started out Mainly working on the desing of websites, but I quickily
