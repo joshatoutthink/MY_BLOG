@@ -24,7 +24,9 @@ export default styled(Row)`
   width: 100%;
   padding: 60px 0;
   .wrapper {
-    padding: 0 20px;
+    @media (max-width: 800px) {
+      padding: 0 20px;
+    }
     max-width: 800px;
     margin: 0 auto;
   }

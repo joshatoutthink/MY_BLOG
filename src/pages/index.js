@@ -5,7 +5,6 @@ import Row from "../components/layoutHelpers/Row"
 import Layout from "../components/layout"
 import HomeMasthead from "../components/HomeMasthead"
 import ProjectSingleList from "../components/ProjectSingle/ProjectSingleList"
-import FeaturedCodePen from "../components/FeaturedCodePen/FeaturedCodePen"
 import RecentPostList from "../components/RecentPost/RecentPostList"
 import LinkButton from "../components/elements/LinkButton"
 import { grey1, grey2, blue3 } from "../components/designSystem"
@@ -19,14 +18,14 @@ const IndexPage = () => {
             <Intro>
               <div className="content">
                 <h1>I am Josh Kennedy. </h1>
-                <h2>I help create the web through design and developement.</h2>
+                <h2>I help create the web through design and development.</h2>
               </div>
             </Intro>
           </div>
         </HomeMasthead>
-        <Row bgC={grey1} color="white">
+        <Row bgC={"white"} color={grey1}>
           <div className="container">
-            <h2>Featured Projects</h2>
+            <h2 style={{ marginBottom: "40px" }}>Featured Projects</h2>
             <ProjectSingleList />
           </div>
         </Row>
@@ -37,12 +36,6 @@ const IndexPage = () => {
             <LinkButton link="/blog">View All Posts</LinkButton>
           </div>
         </RecentPostWrapper>
-        <Row bgC="rgb(40, 44, 47)" color="white">
-          <div className="container">
-            <h2>Recent Pen featured on Codepen</h2>
-            <FeaturedCodePen />
-          </div>
-        </Row>
       </Layout>
     </>
   )
@@ -73,6 +66,9 @@ const Intro = styled.div`
 `
 
 const RecentPostWrapper = styled(Row)`
+  h2 {
+    margin-bottom: 40px;
+  }
   ul {
     margin: 0 0 30px;
   }

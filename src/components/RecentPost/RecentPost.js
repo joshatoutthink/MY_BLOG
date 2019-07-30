@@ -15,7 +15,7 @@ function RecentPost({ className, title, excerpt, link }) {
 }
 export default styled(RecentPost)`
   list-style: none;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
   h3 {
     text-transform: capitalize;
     a {

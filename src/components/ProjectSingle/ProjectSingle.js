@@ -1,23 +1,25 @@
 import React from "react"
 import styled from "styled-components"
-
+import Img from "gatsby-image"
 import LinkButton from "../elements/LinkButton"
 import { grey2, blue3, blue1, blue2 } from "../designSystem"
+import { Link } from "gatsby"
 
 //import Image from "./image"
 
-function ProjectSingle({ image, name, description, link, className }) {
+function ProjectSingle({ image, name, link, className, singleColumn = false }) {
   return (
-    <li className={className}>
+    <li className={className} singleColumn={singleColumn}>
       <div className="project__image">
-        <img src={image} alt="project" />
-        {/* <Image fluid={image} /> */}
+        {/* <img src={image} alt="project" /> */}
+        <Link to={link}>
+          <Img fluid={image} objectFit="cover" />
+        </Link>
       </div>
       <div className="project__name">
         <h3>{name}</h3>
       </div>
-      <div className="project__desecription">
-        <p dangerouslySetInnerHTML={{ __html: description }} />
+      <div className="project__description">
         <LinkButton link={link}>View Project</LinkButton>
       </div>
     </li>
@@ -25,41 +27,41 @@ function ProjectSingle({ image, name, description, link, className }) {
 }
 
 export default styled(ProjectSingle)`
-  margin: 0;
+  list-style: none;
+
   padding: 0;
+  .project__name {
+    margin-bottom: 10px;
+  }
   .project__link:hover {
     transform: scale(1.03);
   }
   .project__link:active {
     transform: scale(0.98);
   }
-  display: grid;
-  grid-template: auto 1fr / 1fr 1fr;
-  height: 300px;
-  grid-column-gap: 40px;
-  grid-row-gap: 20px;
+
   .project__link :active,
   .project__link:hover {
     background: ${blue2};
   }
-  @media (max-width: 763px) {
-    grid-template: auto auto auto / 1fr;
-    height: auto;
-  }
+
   .project__image {
+    margin-bottom: ${props => (props.singleColumn ? "40px" : "20px")};
     width: 100%;
-    height: 100%;
+    height: ${props => (props.singleColumn ? `500px` : `200px`)};
     grid-row: 1/3;
-    padding: 20px;
+    padding: 0px;
     background: ${grey2};
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 50px 100px rgba(0, 0, 0, 0.2), 0 15px 35px rgba(0, 0, 0, 0.3),
       0 5px 15px rgba(0, 0, 0, 0.2);
-    img {
+    .gatsby-image-wrapper {
       width: 100%;
       height: 100%;
-      object-fit: cover;
+    }
+    @media (max-width: 800px) {
+      height: 350px;
     }
   }
   .project__link {

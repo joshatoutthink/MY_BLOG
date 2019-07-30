@@ -1,7 +1,7 @@
 const path = require("path")
 const { fmImagesToRelative } = require("gatsby-remark-relative-images")
 
-exports.onCreateNode = ({ node }) => {
+exports.onCreateNode = async ({ node }) => {
   fmImagesToRelative(node)
 }
 
@@ -33,10 +33,8 @@ exports.createPages = ({ graphql, actions }) => {
       }
 
       results.data.allMarkdownRemark.edges.forEach(({ node }) => {
-        console.log(node.frontmatter.image)
         const imageSlug =
           node.frontmatter.image && node.frontmatter.image.replace("../..", "")
-        console.log(imageSlug)
         createPage({
           path: `${node.frontmatter.slug}`,
           component: path.resolve(

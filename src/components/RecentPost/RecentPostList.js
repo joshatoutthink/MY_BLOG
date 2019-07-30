@@ -43,11 +43,4 @@ function RecentPostList(props) {
 export default styled(RecentPostList)`
   padding: 0;
   margin: 0;
-  display: grid;
-  width: 100%;
-  grid-gap: 40px;
-  grid-template-columns: 1fr 1fr;
-  @media (max-width: 762px) {
-    grid-template-columns: 1fr;
-  }
 `

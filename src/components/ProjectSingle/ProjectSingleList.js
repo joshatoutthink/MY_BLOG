@@ -9,7 +9,7 @@ function ProjectSingleList({ className }) {
     {
       allMarkdownRemark(
         filter: { frontmatter: { type: { eq: "project" } } }
-        limit: 1
+        limit: 3
       ) {
         nodes {
           frontmatter {
@@ -19,7 +19,16 @@ function ProjectSingleList({ className }) {
             type
           }
           id
-          excerpt
+        }
+      }
+      images: allFile(filter: { sourceInstanceName: { eq: "assets" } }) {
+        nodes {
+          absolutePath
+          childImageSharp {
+            fluid {
+              ...GatsbyImageSharpFluid
+            }
+          }
         }
       }
     }
@@ -27,12 +36,20 @@ function ProjectSingleList({ className }) {
   return (
     <ul className={className}>
       {data.allMarkdownRemark.nodes.map(project => {
+        const { frontmatter, id, excerpt } = project
+        const imageSharp = data.images.nodes.filter(sharpImage => {
+          const absPath = sharpImage.absolutePath
+          const staticImageSlug = frontmatter.image.replace("../..", "")
+          const strMatches = absPath.match(`${staticImageSlug}`)
+          const res = strMatches === null ? false : true
+          return res
+        })
+        const fluidImage = imageSharp[0].childImageSharp.fluid
         return (
           <ProjectSingle
-            key={project.id}
+            key={id}
             name={project.frontmatter.title}
-            description={project.excerpt}
-            image={project.frontmatter.image}
+            image={fluidImage}
             link={project.frontmatter.slug}
           />
         )
@@ -41,6 +58,13 @@ function ProjectSingleList({ className }) {
   )
 }
 export default styled(ProjectSingleList)`
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-column-gap: 40px;
   margin: 0;
   padding: 0;
+  @media (max-width: 800px) {
+    grid-gap: 40px;
+    grid-template-columns: 100%;
+  }
 `

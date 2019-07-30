@@ -1,9 +1,8 @@
 ---
 slug: "/animating-charts"
-
 date: 2019-07-03T18:50:13.827Z
 title: Animating Charts Grid
-image: assets/Animating-Charts-Grid.png
+image: ../../assets/Animating-Charts-Grid.png
 type: project
 ---
 ## Animating Charts Grid UI Experiment.

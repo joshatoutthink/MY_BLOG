@@ -24,15 +24,12 @@ module.exports = {
       options: {
         plugins: [
           {
-            resolve: `gatsby-remark-relative-images`,
-          },
-          {
             resolve: `gatsby-remark-images`,
             options: {
-              //this is required
-              maxWidth: 590,
+              maxWidth: 728,
             },
           },
+          "gatsby-remark-copy-linked-files",
         ],
       },
     },
@@ -64,7 +61,9 @@ module.exports = {
         path: `${__dirname}/src/codepen/`,
       },
     },
-    `gatsby-transformer-sharp`,
+    {
+      resolve: `gatsby-transformer-sharp`,
+    },
     `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-plugin-manifest`,
