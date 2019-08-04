@@ -68,11 +68,6 @@ const BlogPage = ({ data }) => {
               )
             })}
           </BlogPostList>
-          <p>
-            {trail.map((props, index) => (
-              <animated.div style={props}>{index}</animated.div>
-            ))}
-          </p>
         </BlogListWrapper>
       </Layout>
     </>

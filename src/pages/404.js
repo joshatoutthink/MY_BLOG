@@ -34,10 +34,7 @@ const NotFoundPage = () => {
   return (
     <Layout>
       <SEO title="404: Not found" />
-      <Count />
-      {trail.map((props, index) => (
-        <Item style={props}>{list[index]}</Item>
-      ))}
+
       <div
         style={{
           display: "flex",
