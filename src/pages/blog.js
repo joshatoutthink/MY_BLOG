@@ -1,6 +1,7 @@
 import React from "react"
 import { graphql } from "gatsby"
 import styled from "styled-components"
+import { animated, useTrail, config, interpolate } from "react-spring"
 
 import RecentPost from "../components/RecentPost/RecentPost"
 import Row from "../components/layoutHelpers/Row"
@@ -33,6 +34,13 @@ export const data = graphql`
 `
 
 const BlogPage = ({ data }) => {
+  const { edges } = data.allMarkdownRemark
+  const trail = useTrail(edges.length, {
+    transform: `translateY(0px)`,
+    from: { transform: `translateY(200px)` },
+  })
+
+  console.log(edges)
   return (
     <>
       <Layout showTitle={true} pageTitle="Blog">
@@ -46,18 +54,25 @@ const BlogPage = ({ data }) => {
         </TitleRow>
         <BlogListWrapper>
           <BlogPostList>
-            {data.allMarkdownRemark.edges.map(({ node }) => {
-              const { slug, title } = node.frontmatter
+            {trail.map((props, index) => {
+              const { slug, title } = edges[index].node.frontmatter
+              console.log(trail)
               return (
-                <RecentPost
-                  title={title}
-                  excerpt={node.excerpt}
-                  link={slug}
-                  key={node.id}
-                />
+                <animated.div key={edges[index]} style={props}>
+                  <RecentPost
+                    title={edges[index].node.frontmatter.title}
+                    excerpt={edges[index].node.excerpt}
+                    link={edges[index].node.frontmatter.slug}
+                  />
+                </animated.div>
               )
             })}
           </BlogPostList>
+          <p>
+            {trail.map((props, index) => (
+              <animated.div style={props}>{index}</animated.div>
+            ))}
+          </p>
         </BlogListWrapper>
       </Layout>
     </>
@@ -90,4 +105,5 @@ const HeroRow = styled(Row)`
     }
   }
 `
+const AnimatedPost = animated(RecentPost)
 export default BlogPage
