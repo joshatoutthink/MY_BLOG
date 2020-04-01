@@ -1,7 +1,7 @@
 import React from "react"
 import { graphql } from "gatsby"
 import styled from "styled-components"
-import { animated, useTrail, config, interpolate } from "react-spring"
+import { animated, useTrail } from "react-spring"
 
 import RecentPost from "../components/RecentPost/RecentPost"
 import Row from "../components/layoutHelpers/Row"
@@ -40,7 +40,6 @@ const BlogPage = ({ data }) => {
     from: { transform: `translateY(200px)` },
   })
 
-  console.log(edges)
   return (
     <>
       <Layout showTitle={true} pageTitle="Blog">
@@ -56,13 +55,16 @@ const BlogPage = ({ data }) => {
           <BlogPostList>
             {trail.map((props, index) => {
               const { slug, title } = edges[index].node.frontmatter
-              console.log(trail)
+
               return (
-                <animated.div key={edges[index]} style={props}>
+                <animated.div
+                  key={`post-${edges[index].node.id}`}
+                  style={props}
+                >
                   <RecentPost
-                    title={edges[index].node.frontmatter.title}
+                    title={title}
                     excerpt={edges[index].node.excerpt}
-                    link={edges[index].node.frontmatter.slug}
+                    link={slug}
                   />
                 </animated.div>
               )
@@ -91,14 +93,5 @@ const BlogListWrapper = styled(Row)`
     }
   }
 `
-const HeroRow = styled(Row)`
-  .wrapper {
-    max-width: 550px;
-    text-align: center;
-    h1 {
-      margin-bottom: 0;
-    }
-  }
-`
-const AnimatedPost = animated(RecentPost)
+
 export default BlogPage

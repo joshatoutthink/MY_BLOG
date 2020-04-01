@@ -14,14 +14,12 @@ const IndexPage = () => {
     <>
       <Layout transparent={true} pageTitle="Home">
         <HomeMasthead>
-          <div className="wrapper">
-            <Intro>
-              <div className="content">
-                <h1>I am Josh Kennedy. </h1>
-                <h2>I help create the web through design and development.</h2>
-              </div>
-            </Intro>
-          </div>
+          <Intro>
+            <div className="content">
+              <h1>I am Josh Kennedy. </h1>
+              <h2>I help create the web through design and development.</h2>
+            </div>
+          </Intro>
         </HomeMasthead>
         <Row bgC={"white"} color={grey1}>
           <div className="container">

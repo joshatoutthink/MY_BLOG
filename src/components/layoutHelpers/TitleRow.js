@@ -3,7 +3,7 @@ import styled from "styled-components"
 import { graphql, useStaticQuery } from "gatsby"
 
 import Row from "./Row"
-import { grey5, blue2, grey1 } from "../designSystem"
+import { grey5, grey1 } from "../designSystem"
 
 const TitleRow = ({ className, children }) => {
   const data = useStaticQuery(graphql`

@@ -1,4 +1,5 @@
-import React from "react"
+import React, { useRef, useEffect, useState } from "react"
+import { animated, useSpring } from "react-spring"
 import styled from "styled-components"
 import Img from "gatsby-image"
 import LinkButton from "../elements/LinkButton"
@@ -8,21 +9,54 @@ import { Link } from "gatsby"
 //import Image from "./image"
 
 function ProjectSingle({ image, name, link, className, singleColumn = false }) {
+  const ref = useRef()
+  const [inView, setInView] = useState(false)
+  useEffect(() => {
+    const options = {
+      root: null,
+      rootMargin: "0px",
+      threshold: [0.2, 0.5, 1.0],
+    }
+    const observer = new IntersectionObserver(slideIn, options)
+    observer.observe(ref.current)
+    function slideIn(entries, observer) {
+      entries.forEach(entry => {
+        if (entry.boundingClientRect.top <= window.innerHeight) {
+          setInView(true)
+        }
+        if (
+          entry.boundingClientRect.bottom >= window.innerHeight &&
+          !entry.isIntersecting
+        ) {
+          setInView(false)
+        }
+      })
+    }
+    return () => observer.disconnect()
+  })
+
+  const props = singleColumn
+    ? useSpring({
+        to: { transform: inView ? `translateY(0px)` : `translateY(200px)` },
+        from: { transform: inView ? `translateY(200px)` : `translateY(0px)` },
+      })
+    : null
   return (
-    <li className={className} singleColumn={singleColumn}>
-      <div className="project__image">
-        {/* <img src={image} alt="project" /> */}
-        <Link to={link}>
-          <Img fluid={image} objectFit="cover" />
-        </Link>
-      </div>
-      <div className="project__name">
-        <h3>{name}</h3>
-      </div>
-      <div className="project__description">
-        <LinkButton link={link}>View Project</LinkButton>
-      </div>
-    </li>
+    <div className={className} ref={ref}>
+      <animated.div style={props}>
+        <div className="project__image">
+          <Link to={link}>
+            <Img fluid={image} objectFit="cover" />
+          </Link>
+        </div>
+        <div className="project__name">
+          <h3>{name}</h3>
+        </div>
+        <div className="project__description">
+          <LinkButton link={link}>View Project</LinkButton>
+        </div>
+      </animated.div>
+    </div>
   )
 }
 

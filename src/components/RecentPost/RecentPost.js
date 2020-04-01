@@ -1,7 +1,6 @@
 import React from "react"
 import styled from "styled-components"
 import { Link } from "gatsby"
-import { animated } from "react-spring"
 
 function RecentPost({ className, title, excerpt, link }) {
   return (

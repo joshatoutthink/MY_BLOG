@@ -43,11 +43,11 @@ function ProjectSingleList({ className }) {
     },
     config: config.default,
   })
-  const AnimatedProjectSingle = animated(ProjectSingle)
+
   return (
     <ul className={className}>
       {trail.map((props, index) => {
-        const { frontmatter, id, excerpt } = nodes[index]
+        const { frontmatter } = nodes[index]
         const imageSharp = data.images.nodes.filter(sharpImage => {
           const absPath = sharpImage.absolutePath
           const staticImageSlug = frontmatter.image.replace("../..", "")
@@ -59,7 +59,7 @@ function ProjectSingleList({ className }) {
         return (
           <animated.li style={{ ...props, listStyle: "none" }}>
             <ProjectSingle
-              key={nodes[index]}
+              key={`proj-${nodes[index]}`}
               name={nodes[index].frontmatter.title}
               image={fluidImage}
               link={nodes[index].frontmatter.slug}

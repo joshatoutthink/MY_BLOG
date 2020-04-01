@@ -1,18 +1,10 @@
 import React from "react"
-import { animated, useSpring, useTrail, config } from "react-spring"
-import styled from "styled-components"
+import { animated, useSpring, config } from "react-spring"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import Count from "../components/Count"
 
 const NotFoundPage = () => {
-  const list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-  const trail = useTrail(list.length, {
-    from: { transform: `translate(20px)` },
-    to: { transform: `translate(0)` },
-    config: config.stiff,
-  })
   const props = useSpring({
     to: {
       opacity: 1,
@@ -30,7 +22,6 @@ const NotFoundPage = () => {
     config: config.default,
     delay: 150,
   })
-  //console.log(opacity)
   return (
     <Layout>
       <SEO title="404: Not found" />
@@ -73,12 +64,5 @@ const NotFoundPage = () => {
     </Layout>
   )
 }
-
-const Item = styled(animated.div)`
-  background: #efefef;
-  padding: 20px;
-  font-size: 20px;
-  margin-bottom: 20px;
-`
 
 export default NotFoundPage

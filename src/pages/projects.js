@@ -35,7 +35,6 @@ export const data = graphql`
 `
 
 const projects = ({ className, data }) => {
-  console.log(data.images)
   const projectsArray = data.allMarkdownRemark.nodes
   return (
     <Layout className={className} showTitle={true} pageTitle="My Work">
@@ -55,14 +54,15 @@ const projects = ({ className, data }) => {
             })
             const fluidImage = imageSharp[0].childImageSharp.fluid
             return (
-              <ProjectSingle
-                singleColumn={true}
-                key={id}
-                image={fluidImage}
-                name={frontmatter.title}
-                description={excerpt}
-                link={frontmatter.slug}
-              />
+              <li key={id} className="project-single-wrapper">
+                <ProjectSingle
+                  singleColumn={true}
+                  image={fluidImage}
+                  name={frontmatter.title}
+                  description={excerpt}
+                  link={frontmatter.slug}
+                />
+              </li>
             )
           })}
         </ProjList>
@@ -75,6 +75,7 @@ export default projects
 
 const ProjList = styled.ul`
   li {
+    list-style: none;
     margin-bottom: 60px;
     @media (max-width: 800px) {
       margin-bottom: 40px;

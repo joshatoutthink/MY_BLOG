@@ -32,7 +32,7 @@ export const data = graphql`
 
 export default function projects({ data }) {
   const { frontmatter, html } = data.markdownRemark
-  const { projectImage } = data
+
   return (
     <Layout showTitle={true} pageTitle={frontmatter.title}>
       <TitleRow>
